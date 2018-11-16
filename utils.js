@@ -1,11 +1,9 @@
 const fs = require('fs');
 const bmp = require('bmp-js');
-const _ = require('lodash');
+const _ = require('underscore');
 
-const getColorOfTheNumber = rgbArr => getMostPopularInArray(rgbArr);
-
-const getMostPopularInArray = store => {
-    const distribution = {};
+const getStartNeuronesArray = store => { // got from stackoverflow :(
+    const distribution = [];
     let max = 0;
     let result = [];
 
@@ -13,20 +11,31 @@ const getMostPopularInArray = store => {
         distribution[a] = (distribution[a] || 0) + 1;
         if (distribution[a] > max) {
             max = distribution[a];
-            result = a;
+            result = [a];
             return;
         }
         if (distribution[a] === max) {
-            // In this case there's more than one dominant color
-            // result.push(a);
+            result.push(a);
         }
     });
 
-    // console.log('max: ' + max);
-    // console.log('key/s with max count: ' + JSON.stringify(result));
-    // console.log(distribution);
+    let numberColorCount = 0;
+    numberColor = '';
+    for (let color in distribution) {
+        if (color !== result[0]) {
+            if (numberColorCount < distribution[color]) {
+                numberColorCount = distribution[color];
+                numberColor = color;
+            }
+        }
+    }
 
-    return result;
+    const neuroArray = store.map(color => {
+        if (numberColor === color) return 1;
+        return 0;
+    })
+
+    return neuroArray;
 }
 
 const getRGBfromBMP = inputArr => {
@@ -34,14 +43,12 @@ const getRGBfromBMP = inputArr => {
     inputArr.forEach((pixel, index) => {
         const currentIndex = Math.floor(index/4) ;
         if ((index) % 4 !== 0) {
-            outputArr[currentIndex] = outputArr[currentIndex] ? `${outputArr[currentIndex]} ${pixel}` : pixel;
+            outputArr[currentIndex] = outputArr[currentIndex] !== undefined ? `${outputArr[currentIndex]} ${pixel}` : pixel;
         }
     });
     
     return outputArr;
 }
-
-const getUniqueValuesFromArray = arr => _.uniq(arr);
 
 const prepareBMP = src => {
     const bmpBuffer = fs.readFileSync(src);
@@ -52,7 +59,7 @@ const prepareBMP = src => {
 }
 
 module.exports = {
-    getColorOfTheNumber,
+    getStartNeuronesArray,
     getRGBfromBMP,
     prepareBMP
 }
