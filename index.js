@@ -1,27 +1,26 @@
 const fs = require('fs');
 const bmp = require('bmp-js');
 
-const imageSrc = './images/3.bmp'; // process.argv[2]; 
+const imageSrc = process.argv[2]; 
 
+const prepareBMP = src => {
+    const bmpBuffer = fs.readFileSync(src);
+    const bmpData = bmp.decode(bmpBuffer);
+    const imageBuffer = bmpData.data;
 
-const bmpBuffer = fs.readFileSync(imageSrc);
-const bmpData = bmp.decode(bmpBuffer);
-const imageBuffer = bmpData.data;
-const pixelsByteArray = imageBuffer.toJSON().data;
-
-const testArr = [];
-
-for (let i = 1; i <= 100; i++) {
-    testArr.push(i);
+    return imageBuffer.toJSON().data;
 }
 
-const colorsArr = [];
+const getRGBfromBMP = inputArr => {
+    const outputArr = [];
+    inputArr.forEach((pixel, index) => {
+        const currentIndex = Math.floor(index/4) ;
+        if ((index) % 4 !== 0) {
+            outputArr[currentIndex] = outputArr[currentIndex] ? `${outputArr[currentIndex]} ${pixel}` : pixel;
+        }
+    });
 
-pixelsByteArray.forEach((pixel, index) => {
-    const currentIndex = Math.floor(index/4) ;
-    if ((index) % 4 !== 0) {
-        colorsArr[currentIndex] = colorsArr[currentIndex] ? `${colorsArr[currentIndex]} ${pixel}` : pixel;
-    }
-});
+    return outputArr;
+}
 
-console.log(colorsArr);
+console.log(getRGBfromBMP(prepareBMP(imageSrc)));

@@ -4,7 +4,7 @@
   "description": "Hackathon project",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js ./images/3.bmp",
     "test": "jest"
   },
   "repository": {
