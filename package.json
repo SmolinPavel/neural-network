@@ -1,0 +1,28 @@
+{
+  "name": "neural-network",
+  "version": "1.0.0",
+  "description": "Hackathon project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmolinPavel/neural-network.git"
+  },
+  "keywords": [
+    "nn",
+    "ai",
+    "node-js"
+  ],
+  "author": "Pavel Smolin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SmolinPavel/neural-network/issues"
+  },
+  "homepage": "https://github.com/SmolinPavel/neural-network#readme",
+  "dependencies": {
+    "bmp-js": "^0.1.0"
+  }
+}
