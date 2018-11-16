@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/SmolinPavel/neural-network#readme",
   "dependencies": {
-    "bmp-js": "^0.1.0"
+    "bmp-js": "^0.1.0",
+    "lodash": "^4.17.11"
   }
 }
