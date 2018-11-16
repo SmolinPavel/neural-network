@@ -7,7 +7,7 @@ const getStartNeuronesArray = store => { // got from stackoverflow :(
     let max = 0;
     let result = [];
 
-    store.forEach(function (a) {
+    store.forEach(a => {
         distribution[a] = (distribution[a] || 0) + 1;
         if (distribution[a] > max) {
             max = distribution[a];
@@ -22,7 +22,7 @@ const getStartNeuronesArray = store => { // got from stackoverflow :(
     let numberColorCount = 0;
     numberColor = '';
     for (let color in distribution) {
-        if (color !== result[0]) {
+        if (color !== result[0]) { // TODO check if there are two color winners 
             if (numberColorCount < distribution[color]) {
                 numberColorCount = distribution[color];
                 numberColor = color;
@@ -58,8 +58,17 @@ const prepareBMP = src => {
     return imageBuffer.toJSON().data;
 }
 
+const getResultNeuros = num => {
+    const res = [];
+    for (i = 0; i < 11; i++) { 
+        res.push(num === i ? 1 : 0);
+    }
+    return res;
+}
+
 module.exports = {
     getStartNeuronesArray,
+    getResultNeuros,
     getRGBfromBMP,
     prepareBMP
 }

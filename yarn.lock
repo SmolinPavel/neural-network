@@ -2,10 +2,35 @@
 # yarn lockfile v1
 
 
+acorn@^5.1.1:
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
+  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+
 bmp-js@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/bmp-js/-/bmp-js-0.1.0.tgz#e05a63f796a6c1ff25f4771ec7adadc148c07233"
   integrity sha1-4Fpj95amwf8l9Hcex62twUjAcjM=
+
+brain.js@^1.4.10:
+  version "1.4.10"
+  resolved "https://registry.yarnpkg.com/brain.js/-/brain.js-1.4.10.tgz#cab56b97fccaa1b4560ef36bc0d33b3590e9cbae"
+  integrity sha512-4TEs1tm0NbtJ2CLzLt8HfcooiBXjT8S2aBkMct2BpSVYoD+JtGXrI1l6c2rF0jB9gbp6QzgvCRHZ5iJsb8riWw==
+  dependencies:
+    gpu.js "^1.2.0"
+    thaw.js "^2.0.0"
+
+gpu.js@^1.2.0:
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/gpu.js/-/gpu.js-1.10.2.tgz#b0cb38d288988382d9be99ec7d2dc34ab33400c7"
+  integrity sha512-wBRXaGBf5WLrIN+eR+isWLzaVoNwYeJG/t9AWyj24nw+iWKJzbDZ1LrKhNjuTXwFvUqPFYOwPkGnPWBBJiRQoQ==
+  dependencies:
+    acorn "^5.1.1"
+
+thaw.js@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/thaw.js/-/thaw.js-2.0.0.tgz#452bc5d7ee2ce1b6f92037b05b506cbd656291d0"
+  integrity sha1-RSvF1+4s4bb5IDewW1BsvWVikdA=
 
 underscore@^1.9.1:
   version "1.9.1"

@@ -24,6 +24,7 @@
   "homepage": "https://github.com/SmolinPavel/neural-network#readme",
   "dependencies": {
     "bmp-js": "^0.1.0",
+    "brain.js": "^1.4.10",
     "underscore": "^1.9.1"
   }
 }
